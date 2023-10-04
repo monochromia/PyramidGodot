@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://e1do5koqqnuc"]
+
+[node name="options_menu_scene_head" type="Node2D"]
+
+[node name="Options Menu Background" type="ColorRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 643.0
+color = Color(0.341176, 0.341176, 0.341176, 0.615686)
+
+[node name="Fullscreen Button" type="CheckButton" parent="Options Menu Background"]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 289.0
+offset_right = 560.0
+offset_bottom = 320.0
+text = "Fullscreen"
+
+[node name="Button" type="Button" parent="Options Menu Background"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 493.0
+offset_right = 516.0
+offset_bottom = 524.0
+text = "Quit"
+
+[node name="Options Menu Title" type="RichTextLabel" parent="Options Menu Background"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 98.0
+offset_right = 596.0
+offset_bottom = 121.0
+bbcode_enabled = true
+text = "[center]Options Menu[/center]"
+fit_content = true
+
+[node name="Audio Bus Slider" type="HSlider" parent="Options Menu Background"]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 231.0
+offset_right = 630.0
+offset_bottom = 268.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options Menu Background"]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 237.0
+offset_right = 519.0
+offset_bottom = 260.0
+bbcode_enabled = true
+text = "[center]Sound[/center]"
+fit_content = true

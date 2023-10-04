@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://7vndkieppeer"]
+
+[node name="card_flip_scene_head" type="Node2D"]
+
+[node name="Background Placeholder" type="ColorRect" parent="."]
+offset_right = 1147.0
+offset_bottom = 652.0
+color = Color(0.282353, 0.619608, 0.266667, 1)
+
+[node name="Reroll Button" type="Button" parent="Background Placeholder"]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 601.0
+offset_right = 626.0
+offset_bottom = 649.0
+text = "Reroll!"
+
+[node name="Quit Button" type="Button" parent="Background Placeholder"]
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 3.0
+offset_right = 1144.0
+offset_bottom = 34.0
+text = "Close App"
+
+[node name="Options Button" type="Button" parent="Background Placeholder"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 1.0
+offset_right = 1049.0
+offset_bottom = 32.0
+text = "Options Menu"
+
+[node name="Pack Area Placeholder" type="ColorRect" parent="Background Placeholder"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 114.0
+offset_right = 1120.0
+offset_bottom = 590.0
+color = Color(0.117647, 0.345098, 0.411765, 1)
+
+[node name="Back Button" type="Button" parent="Background Placeholder"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "<--------"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background Placeholder"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 67.0
+offset_right = 905.0
+offset_bottom = 107.0
+bbcode_enabled = true
+text = "[center]Name Generator[/center]"
+fit_content = true
+scroll_active = false
