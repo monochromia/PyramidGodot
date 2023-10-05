@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://234lng0cewxr"]
+[gd_scene load_steps=3 format=3 uid="uid://234lng0cewxr"]
 
 [ext_resource type="Script" path="res://Main Menu.gd" id="1_cxb4o"]
+[ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="2_q7kcx"]
 
 [node name="Main_Menu_Scene_Head" type="Node2D"]
 script = ExtResource("1_cxb4o")
@@ -41,6 +42,9 @@ bbcode_enabled = true
 text = "[rainbow][wave][center]THE PYRAMID[/center][/wave][/rainbow]"
 fit_content = true
 scroll_active = false
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q7kcx")
 
 [connection signal="pressed" from="Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Options Button" to="." method="_on_options_button_pressed"]

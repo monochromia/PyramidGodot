@@ -1,9 +1,29 @@
 extends Node
 
+var fullscreen: bool = false
+var music_volume: float = 0
+var sfx_volume: float = 0
+
+const SAVE_PATH = "user://settings.ini"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var config := ConfigFile.new()
+	
+	config.load(SAVE_PATH)
+	
+	if config.get_value("settings", "music_volume"):
+		music_volume = config.get_value("settings", "music_volume")
+		
+	if config.get_value("settings", "sfx_volume"):
+		sfx_volume = config.get_value("settings", "sfx_volume")
+		
+	if config.get_value("settings", "fullscreen"):
+		fullscreen = config.get_value("settings", "fullscreen")
+		
+	$BGM.volume_db = music_volume
+	$BGM.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
