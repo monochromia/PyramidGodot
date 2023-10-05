@@ -1,44 +1,47 @@
-[gd_scene format=3 uid="uid://234lng0cewxr"]
+[gd_scene load_steps=2 format=3 uid="uid://234lng0cewxr"]
+
+[ext_resource type="Script" path="res://Main Menu.gd" id="1_cxb4o"]
 
 [node name="Main_Menu_Scene_Head" type="Node2D"]
+script = ExtResource("1_cxb4o")
 
 [node name="Background Placeholder" type="ColorRect" parent="."]
 offset_right = 1147.0
 offset_bottom = 652.0
 color = Color(0.282353, 0.619608, 0.266667, 1)
 
-[node name="Start Button" type="Button" parent="Background Placeholder"]
-layout_mode = 0
+[node name="Start Button" type="Button" parent="."]
 offset_left = 518.0
 offset_top = 219.0
 offset_right = 614.0
 offset_bottom = 250.0
 text = "Start Game"
 
-[node name="Options Button" type="Button" parent="Background Placeholder"]
-layout_mode = 0
+[node name="Options Button" type="Button" parent="."]
 offset_left = 528.0
 offset_top = 264.0
 offset_right = 598.0
 offset_bottom = 295.0
 text = "Options"
 
-[node name="Quit Button" type="Button" parent="Background Placeholder"]
-layout_mode = 0
+[node name="Quit Button" type="Button" parent="."]
 offset_left = 536.0
 offset_top = 321.0
 offset_right = 578.0
 offset_bottom = 352.0
 text = "Quit"
 
-[node name="Title Text" type="RichTextLabel" parent="Background Placeholder"]
-layout_mode = 0
+[node name="Title Text" type="RichTextLabel" parent="."]
 offset_left = 355.0
 offset_top = 126.0
 offset_right = 773.0
-offset_bottom = 166.0
+offset_bottom = 171.0
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[rainbow][wave][center]THE PYRAMID[/center][/wave][/rainbow]"
 fit_content = true
 scroll_active = false
+
+[connection signal="pressed" from="Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Options Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Quit Button" to="." method="_on_quit_button_pressed"]
