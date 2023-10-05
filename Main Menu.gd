@@ -1,9 +1,22 @@
 extends Node2D
 
+var fullscreen: bool = false
+
+const SAVE_PATH = "user://settings.ini"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var config := ConfigFile.new()
+	
+	config.load(SAVE_PATH)
+		
+	if  config.get_value("settings", "fullscreen"):
+		fullscreen = config.get_value("settings", "fullscreen")
+	
+	if fullscreen:
+		get_window().set_mode(Window.MODE_FULLSCREEN)
+	else:
+		get_window().set_mode(Window.MODE_WINDOWED)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

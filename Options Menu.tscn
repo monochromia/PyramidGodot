@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://e1do5koqqnuc"]
+[gd_scene load_steps=3 format=3 uid="uid://e1do5koqqnuc"]
 
 [ext_resource type="Script" path="res://Options Menu.gd" id="1_qvm20"]
+[ext_resource type="AudioStream" uid="uid://b7gofvgctvkaw" path="res://sounds/Menu_Sounds_V2_Minimalistic_HOVER.wav" id="2_2q1tr"]
 
 [node name="options_menu_scene_head" type="Node2D"]
 script = ExtResource("1_qvm20")
@@ -10,7 +11,36 @@ offset_right = 1149.0
 offset_bottom = 643.0
 color = Color(0.341176, 0.341176, 0.341176, 0.615686)
 
-[node name="Fullscreen Button" type="CheckButton" parent="."]
+[node name="Options Menu Title" type="RichTextLabel" parent="."]
+offset_left = 380.0
+offset_top = 98.0
+offset_right = 596.0
+offset_bottom = 121.0
+bbcode_enabled = true
+text = "[center]Options Menu[/center]"
+fit_content = true
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+offset_left = 541.0
+offset_top = 231.0
+offset_right = 630.0
+offset_bottom = 268.0
+value = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 437.0
+offset_top = 237.0
+offset_right = 519.0
+offset_bottom = 260.0
+bbcode_enabled = true
+text = "[center]Sound[/center]"
+fit_content = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2q1tr")
+pitch_scale = 0.63
+
+[node name="FullscreenToggle" type="CheckButton" parent="."]
 offset_left = 433.0
 offset_top = 289.0
 offset_right = 560.0
@@ -31,29 +61,7 @@ offset_right = 626.0
 offset_bottom = 524.0
 text = "Cancel"
 
-[node name="Options Menu Title" type="RichTextLabel" parent="."]
-offset_left = 380.0
-offset_top = 98.0
-offset_right = 596.0
-offset_bottom = 121.0
-bbcode_enabled = true
-text = "[center]Options Menu[/center]"
-fit_content = true
-
-[node name="Audio Bus Slider" type="HSlider" parent="."]
-offset_left = 541.0
-offset_top = 231.0
-offset_right = 630.0
-offset_bottom = 268.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 437.0
-offset_top = 237.0
-offset_right = 519.0
-offset_bottom = 260.0
-bbcode_enabled = true
-text = "[center]Sound[/center]"
-fit_content = true
-
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_update"]
+[connection signal="toggled" from="FullscreenToggle" to="." method="_on_fullscreen_toggle_update"]
 [connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]
