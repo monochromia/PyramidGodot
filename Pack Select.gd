@@ -3,8 +3,9 @@ extends Node
 var fullscreen: bool = false
 var music_volume: float = 0
 var sfx_volume: float = 0
+var mod_folder_path : String = ""
 
-const SAVE_PATH = "user://settings.ini"
+const SAVE_PATH = "user://settings.cfg"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +22,9 @@ func _ready():
 		
 	if config.get_value("settings", "fullscreen"):
 		fullscreen = config.get_value("settings", "fullscreen")
+	
+	if config.get_value("settings", "mod_folder_path"):
+		mod_folder_path = config.get_value("settings", "mod_folder_path")
 		
 	$BGM.volume_db = music_volume
 	$BGM.play()

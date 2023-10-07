@@ -4,7 +4,7 @@ var fullscreen: bool = false
 var music_volume: float = 0
 var sfx_volume: float = 0
 
-const SAVE_PATH = "user://settings.ini"
+const SAVE_PATH = "user://settings.cfg"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
