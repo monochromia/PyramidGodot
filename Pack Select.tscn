@@ -7,102 +7,99 @@
 [node name="Pack_Select_Scene_Head" type="Node2D"]
 script = ExtResource("1_x7gni")
 
-[node name="Background Placeholder" type="ColorRect" parent="."]
-offset_right = 1171.0
-offset_bottom = 652.0
+[node name="Background" type="ColorRect" parent="."]
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0.282353, 0.619608, 0.266667, 1)
 
-[node name="Pack Area Placeholder" type="ColorRect" parent="Background Placeholder"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 50.0
-offset_right = 1120.0
-offset_bottom = 467.0
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tm624")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 24.0
+offset_right = 1150.0
+offset_bottom = 628.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0.117647, 0.345098, 0.411765, 1)
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="Pack Select Data" parent="Background Placeholder/Pack Area Placeholder" instance=ExtResource("3_bwkng")]
-layout_mode = 1
-offset_top = -208.5
-offset_right = -9.0
-offset_bottom = 211.5
+[node name="OuterGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/v_separation = 8
 
-[node name="Done Button" type="Button" parent="."]
-offset_left = 509.0
-offset_top = 601.0
-offset_right = 626.0
-offset_bottom = 649.0
-text = "Done Drafting"
+[node name="TopButtonsGrid" type="GridContainer" parent="MarginContainer/OuterGrid"]
+layout_mode = 2
+theme_override_constants/h_separation = 13
+columns = 5
 
-[node name="Next Page Button" type="Button" parent="."]
-offset_left = 1029.0
-offset_top = 601.0
-offset_right = 1121.0
-offset_bottom = 632.0
-text = "Next Page"
-
-[node name="Rules Button" type="Button" parent="."]
-offset_left = 44.0
-offset_top = 12.0
-offset_right = 114.0
-offset_bottom = 43.0
+[node name="Rules Button" type="Button" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
+layout_mode = 2
 text = "Rules"
 
-[node name="End Run Button" type="Button" parent="."]
-offset_left = 1012.0
-offset_top = 10.0
-offset_right = 1119.0
-offset_bottom = 41.0
-text = "Back to Start"
-
-[node name="Options Button" type="Button" parent="."]
-offset_left = 887.0
-offset_top = 10.0
-offset_right = 1005.0
-offset_bottom = 41.0
-text = "Options Menu"
-
-[node name="Prev Page Button" type="Button" parent="."]
-offset_left = 30.0
-offset_top = 603.0
-offset_right = 114.0
-offset_bottom = 634.0
-text = "Prev Page"
-
-[node name="Selected Packs Placeholder" type="ColorRect" parent="."]
-offset_left = 31.0
-offset_top = 504.0
-offset_right = 1120.0
-offset_bottom = 596.0
-color = Color(0.117647, 0.439216, 0.12549, 1)
-
-[node name="Search Bar" type="TextEdit" parent="."]
-offset_left = 126.0
-offset_top = 8.0
-offset_right = 744.0
-offset_bottom = 47.0
+[node name="Search Bar" type="TextEdit" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/background_color = Color(1, 1, 1, 0.27451)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Search Bar"
 placeholder_text = "Search Bar"
 
-[node name="Filter Menu Button" type="Button" parent="."]
-offset_left = 754.0
-offset_top = 11.0
-offset_right = 880.0
-offset_bottom = 42.0
+[node name="Filter Menu Button" type="Button" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
+layout_mode = 2
 text = "Filter Menu"
 
-[node name="Decoration" type="ColorRect" parent="."]
-offset_left = 31.0
-offset_top = 483.0
-offset_right = 1119.0
-offset_bottom = 494.0
+[node name="Options Button" type="Button" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
+layout_mode = 2
+text = "Options Menu"
+
+[node name="End Run Button" type="Button" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
+layout_mode = 2
+text = "Back to Start"
+
+[node name="Pack Select Data" parent="MarginContainer/OuterGrid" instance=ExtResource("3_bwkng")]
+layout_mode = 2
+
+[node name="Decoration" type="ColorRect" parent="MarginContainer/OuterGrid"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_tm624")
+[node name="Selected Packs Placeholder" type="ColorRect" parent="MarginContainer/OuterGrid"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+color = Color(0.117647, 0.439216, 0.12549, 1)
 
-[connection signal="pressed" from="End Run Button" to="." method="_on_end_run_button_pressed"]
-[connection signal="pressed" from="Options Button" to="." method="_on_options_button_pressed"]
+[node name="BottomButtonsGrid" type="GridContainer" parent="MarginContainer/OuterGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 419
+columns = 3
+
+[node name="Prev Page Button" type="Button" parent="MarginContainer/OuterGrid/BottomButtonsGrid"]
+layout_mode = 2
+text = "Prev Page"
+
+[node name="Done Button" type="Button" parent="MarginContainer/OuterGrid/BottomButtonsGrid"]
+layout_mode = 2
+text = "Done Drafting"
+
+[node name="Next Page Button" type="Button" parent="MarginContainer/OuterGrid/BottomButtonsGrid"]
+layout_mode = 2
+text = "Next Page"
+
+[connection signal="pressed" from="MarginContainer/OuterGrid/TopButtonsGrid/Options Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/OuterGrid/TopButtonsGrid/End Run Button" to="." method="_on_end_run_button_pressed"]
+[connection signal="pressed" from="MarginContainer/OuterGrid/BottomButtonsGrid/Prev Page Button" to="." method="_on_prev_page_button_pressed"]
+[connection signal="pressed" from="MarginContainer/OuterGrid/BottomButtonsGrid/Next Page Button" to="." method="_on_next_page_button_pressed"]

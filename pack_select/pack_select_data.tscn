@@ -30,6 +30,7 @@ theme_override_constants/v_separation = 12
 columns = 6
 
 [node name="Slot" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(90, 150)
 layout_mode = 2
 
 [node name="Slot2" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
@@ -48,6 +49,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Slot7" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 
 [node name="Slot8" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]

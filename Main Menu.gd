@@ -28,8 +28,15 @@ func _ready():
 		
 	$BGM.volume_db = music_volume
 	$BGM.play()
+	
+	adjust_background_size()
+	get_tree().root.connect("size_changed", adjust_background_size)
 
 
+func adjust_background_size():
+	var window = get_window()
+	$Background.set_custom_minimum_size(Vector2(window.size.x, window.size.y))
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
