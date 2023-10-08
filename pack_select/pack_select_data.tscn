@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmmamuu4273x5"]
+
+[ext_resource type="Script" path="res://pack_select/pack_select_data.gd" id="1_b4fgo"]
+[ext_resource type="PackedScene" uid="uid://cvgkt1aa6p2wi" path="res://pack_select/slot.tscn" id="2_s1ifu"]
+
+[node name="Pack Select Data" type="PanelContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -202.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b4fgo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 6
+
+[node name="Slot" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot2" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot3" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot4" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot5" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot6" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot7" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot8" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot9" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot10" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot11" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2
+
+[node name="Slot12" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+layout_mode = 2

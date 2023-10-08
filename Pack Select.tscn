@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfx6r1wt7k8ve"]
+[gd_scene load_steps=4 format=3 uid="uid://dfx6r1wt7k8ve"]
 
 [ext_resource type="Script" path="res://Pack Select.gd" id="1_x7gni"]
 [ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="2_tm624"]
+[ext_resource type="PackedScene" uid="uid://dmmamuu4273x5" path="res://pack_select/pack_select_data.tscn" id="3_bwkng"]
 
 [node name="Pack_Select_Scene_Head" type="Node2D"]
 script = ExtResource("1_x7gni")
 
 [node name="Background Placeholder" type="ColorRect" parent="."]
-offset_right = 1147.0
+offset_right = 1151.0
 offset_bottom = 652.0
 color = Color(0.282353, 0.619608, 0.266667, 1)
 
@@ -19,17 +20,17 @@ offset_bottom = 649.0
 text = "Done Drafting"
 
 [node name="Next Page Button" type="Button" parent="."]
-offset_left = 1007.0
-offset_top = 612.0
-offset_right = 1099.0
-offset_bottom = 643.0
+offset_left = 1029.0
+offset_top = 601.0
+offset_right = 1121.0
+offset_bottom = 632.0
 text = "Next Page"
 
 [node name="Rules Button" type="Button" parent="."]
-offset_left = 33.0
-offset_top = 14.0
-offset_right = 103.0
-offset_bottom = 45.0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 114.0
+offset_bottom = 43.0
 text = "Rules"
 
 [node name="End Run Button" type="Button" parent="."]
@@ -47,16 +48,16 @@ offset_bottom = 41.0
 text = "Options Menu"
 
 [node name="Prev Page Button" type="Button" parent="."]
-offset_left = 35.0
-offset_top = 614.0
-offset_right = 119.0
-offset_bottom = 645.0
+offset_left = 30.0
+offset_top = 603.0
+offset_right = 114.0
+offset_bottom = 634.0
 text = "Prev Page"
 
 [node name="Selected Packs Placeholder" type="ColorRect" parent="."]
-offset_left = 27.0
+offset_left = 31.0
 offset_top = 504.0
-offset_right = 1116.0
+offset_right = 1120.0
 offset_bottom = 596.0
 color = Color(0.117647, 0.439216, 0.12549, 1)
 
@@ -85,14 +86,20 @@ offset_bottom = 42.0
 text = "Filter Menu"
 
 [node name="Decoration" type="ColorRect" parent="."]
-offset_left = 39.0
+offset_left = 31.0
 offset_top = 483.0
-offset_right = 1125.0
+offset_right = 1119.0
 offset_bottom = 494.0
 color = Color(0, 0, 0, 1)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_tm624")
+
+[node name="Pack Select Data" parent="." instance=ExtResource("3_bwkng")]
+offset_left = 31.0
+offset_top = 50.0
+offset_right = 1120.0
+offset_bottom = 467.0
 
 [connection signal="pressed" from="End Run Button" to="." method="_on_end_run_button_pressed"]
 [connection signal="pressed" from="Options Button" to="." method="_on_options_button_pressed"]

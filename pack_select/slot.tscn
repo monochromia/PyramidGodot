@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvgkt1aa6p2wi"]
+
+[ext_resource type="Script" path="res://pack_select/slot.gd" id="1_kquhm"]
+[ext_resource type="Texture2D" uid="uid://2ylnwwooymkp" path="res://icon.svg" id="1_x2tn2"]
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 180)
+offset_right = 128.0
+offset_bottom = 200.0
+script = ExtResource("1_kquhm")
+
+[node name="Pack Image" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("1_x2tn2")
+stretch_mode = 5

@@ -4,12 +4,17 @@ var fullscreen: bool = false
 var music_volume: float = 0
 var sfx_volume: float = 0
 var mod_folder_path : String = ""
+var all_packs: Array[PackData]
 
 const SAVE_PATH = "user://settings.cfg"
-
+const Slot = preload("res://pack_select/slot.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	load_settings()
+
+
+func load_settings():
 	var config := ConfigFile.new()
 	
 	config.load(SAVE_PATH)
