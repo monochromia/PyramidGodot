@@ -10,11 +10,13 @@ const SAVE_PATH = "user://settings.cfg"
 const Slot = preload("res://pack_select/slot.tscn")
 @onready var background = $Background
 @onready var pack_select_data = $"MarginContainer/OuterGrid/Pack Select Data"
+@onready var active_row = $MarginContainer/OuterGrid/SelectedPacksRow
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_settings()
 	get_tree().root.connect("size_changed", adjust_background_size)
+	connect_pack_select_to_active_row()
 
 
 
@@ -41,9 +43,8 @@ func load_settings():
 	adjust_background_size()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func connect_pack_select_to_active_row():
+	active_row.set_pack_select_data(pack_select_data)
 
 
 func adjust_background_size():

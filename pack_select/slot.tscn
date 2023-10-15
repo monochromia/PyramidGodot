@@ -14,3 +14,5 @@ layout_mode = 2
 size_flags_vertical = 8
 texture = ExtResource("1_x2tn2")
 stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

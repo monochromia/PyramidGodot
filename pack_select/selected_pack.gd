@@ -1,8 +1,7 @@
 extends PanelContainer
 
-signal slot_clicked(index: int, button: int)
-
-@onready var pack_image: TextureRect = $"Pack Image"
+@onready var pack_image: TextureRect = $TextureRect
+@export var pack: PackData
 
 func load_image_into_texture(image_path):
 	var im = Image.new()
@@ -22,15 +21,8 @@ func load_image_into_texture(image_path):
 		print("Failed to load image: ", image_path)
 		return null
 
-func set_slot_data(slot_data: SlotData) -> void:
-	var pack_data = slot_data.pack_data
+func set_pack_data(pack_data: PackData) -> void:
+	pack = pack_data
 	pack_image.texture = load_image_into_texture(pack_data.texture_path)
-	tooltip_text = "%s\n(Left-Click to Add Copy to Run)\n(Right-Click to Remove Copy from Run)" % [pack_data.name]
+	tooltip_text = "%s" % [pack_data.name]
 	
-
-func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton \
-			and (event.button_index == MOUSE_BUTTON_LEFT \
-			or event.button_index == MOUSE_BUTTON_RIGHT) \
-			and event.is_pressed():
-		slot_clicked.emit(get_index(), event.button_index)

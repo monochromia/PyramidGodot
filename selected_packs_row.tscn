@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch1etwk418qvd"]
+
+[ext_resource type="Script" path="res://selected_packs_row.gd" id="1_efqxx"]
+
+[node name="SelectedPacksRow" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 70)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+script = ExtResource("1_efqxx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 8
+
+[node name="ActivePacksRow" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 15

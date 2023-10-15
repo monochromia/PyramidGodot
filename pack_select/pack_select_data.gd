@@ -2,6 +2,8 @@ extends PanelContainer
 
 class_name PackSelectData
 
+signal pack_clicked(pack: PackData, left_click: bool)
+
 @export var slot_data: Array[SlotData]
 
 var mod_folder_path : String = ""
@@ -78,8 +80,12 @@ func prev_page():
 	populate_pack_select()
 
 
+func visible_packs() -> Array[PackData]:
+	return all_packs.slice(starting_index, starting_index + page_size)
+
+
 func populate_pack_select():
-	var pack_data = all_packs.slice(starting_index, starting_index + page_size)
+	var pack_data = visible_packs()
 	
 	for child in grid_container.get_children():
 		child.queue_free()
@@ -89,6 +95,7 @@ func populate_pack_select():
 			var slot = Slot.instantiate()
 			var slot_data = SlotData.new()
 			slot_data.pack_data = pack_datum
+			slot.slot_clicked.connect(on_slot_clicked)
 			grid_container.add_child(slot)
 			slot.set_slot_data(slot_data)
 	
@@ -100,3 +107,14 @@ func load_settings():
 	
 	if config.get_value("settings", "mod_folder_path"):
 		mod_folder_path = config.get_value("settings", "mod_folder_path")
+
+func on_slot_clicked(index: int, button: int) -> void:
+	var current_packs = visible_packs()
+	var clicked_pack = current_packs[index]
+	var left_click = true
+	
+	if button == MOUSE_BUTTON_RIGHT:
+		left_click = false
+		
+	pack_clicked.emit(clicked_pack, left_click)
+	
