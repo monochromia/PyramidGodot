@@ -26,30 +26,29 @@ func _ready():
 
 
 func load_cards():
-	var card_backs_dir = DirAccess.open(mod_folder_path + "/Card Backs App")
+	var packs_dir = DirAccess.open(mod_folder_path + "/PACKS")
 	
-	if card_backs_dir:
-		card_backs_dir.list_dir_begin()
-		
-		var file_name = card_backs_dir.get_next()
-		while file_name != "":
-			if card_backs_dir.current_is_dir(): # if it's a directory
-				file_name = card_backs_dir.get_next()
-				continue
-				
+	if packs_dir:
+		packs_dir.list_dir_begin()
+		var cur_pack_dir = mod_folder_path + "/PACKS/"
+		var next = packs_dir.get_next()
+		while next != "":
+			var files = DirAccess.open(cur_pack_dir + "/" +next).get_files()
+			for file in files:
 			# Check if the file is an image by checking its extension
-			if file_name.ends_with(".png") or file_name.ends_with(".jpg") or file_name.ends_with(".jpeg"):
-				var new_pack = PackData.new()
-				new_pack.name = file_name.split('.')[0]
-				new_pack.texture_path = mod_folder_path + "/Card Backs App/" + file_name
-				
-				all_packs.push_back(
-					new_pack
-				)
-			
-			file_name = card_backs_dir.get_next()  # Get the next file name
-		
-		card_backs_dir.list_dir_end()  # Finish reading the directory
+				if (file.ends_with(".png") or file.ends_with(".jpg") or file.ends_with(".jpeg")) and file.begins_with("b1"):
+					var new_pack = PackData.new()
+					new_pack.name = next
+					new_pack.texture_path = cur_pack_dir + "/" + next + "/" + file
+	
+					all_packs.push_back(
+						new_pack
+					)
+			next = packs_dir.get_next()
+#				file_name = cur_pack_dir.get_next()  # Get the next file name
+#			cur_pack_dir = packs_dir.get_next()
+#
+#		packs_dir.list_dir_end()  # Finish reading the directory
 		
 		all_packs.sort_custom(sort_packs)
 		
