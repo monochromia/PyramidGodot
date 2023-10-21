@@ -25,6 +25,14 @@ func _ready():
 	else:
 		# Todo: Tell the user to update the mods path
 		pass
+		
+
+func readJSON(json_file_path):
+	var file = FileAccess.open(json_file_path, FileAccess.READ)
+	var content = file.get_as_text()
+	var json = JSON.new()
+	var finish = json.parse_string(content)
+	return finish
 
 
 func load_cards():
@@ -36,24 +44,28 @@ func load_cards():
 		var next = packs_dir.get_next()
 		while next != "":
 			var files = DirAccess.open(cur_pack_dir + "/" +next).get_files()
+			var found_back = false
 			for file in files:
 			# Check if the file is an image by checking its extension
+				if (file.ends_with(".json")):
+					var path = cur_pack_dir + "/" +next+"/"+file
+					#Debug: Prints data read in from manifest.json
+					print(readJSON(path))
 				if (file.ends_with(".png") or file.ends_with(".jpg") or file.ends_with(".jpeg")) and file.begins_with("b1"):
 					var new_pack = PackData.new()
 					new_pack.name = next
 					new_pack.texture_path = cur_pack_dir + "/" + next + "/" + file
-	
+					
+					#TODO: Save manifest data in pack.
 					all_packs.push_back(
 						new_pack
 					)
+					found_back = true
+			if found_back == false:
+				print("Could not find b1.(png,jpg,jpeg) in: " + str(cur_pack_dir) + str(next))
 			next = packs_dir.get_next()
-#				file_name = cur_pack_dir.get_next()  # Get the next file name
-#			cur_pack_dir = packs_dir.get_next()
-#
-#		packs_dir.list_dir_end()  # Finish reading the directory
-		
+	
 		all_packs.sort_custom(sort_packs)
-		
 		populate_pack_select()
 	else:
 		print("Could not open directory")
