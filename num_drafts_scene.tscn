@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://uuy61b46o2hn"]
+
+[ext_resource type="Script" path="res://num_drafts_scene.gd" id="1_cfp7m"]
+[ext_resource type="Texture2D" uid="uid://b5c1jq3bswwlr" path="res://sprites/ui/howmany.png" id="1_chqtc"]
+[ext_resource type="Texture2D" uid="uid://bt6dv5xrsokt6" path="res://sprites/ui/one.png" id="2_0chyk"]
+[ext_resource type="Texture2D" uid="uid://b763nce40mgqe" path="res://sprites/ui/three.png" id="3_r1frs"]
+[ext_resource type="Texture2D" uid="uid://dwqk4fhtmcxli" path="res://sprites/ui/five.png" id="4_y8obo"]
+[ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="6_uvl33"]
+
+[node name="NumDraftsScene" type="CenterContainer"]
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_cfp7m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HowManyImg" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+texture = ExtResource("1_chqtc")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="NumDraftsWrapper" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("2_0chyk")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("3_r1frs")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("4_y8obo")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 2
+color = Color(0.282353, 0.619608, 0.266667, 1)
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_uvl33")

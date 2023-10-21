@@ -101,4 +101,5 @@ text = "Next Page"
 [connection signal="pressed" from="MarginContainer/OuterGrid/TopButtonsGrid/Options Button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/OuterGrid/TopButtonsGrid/End Run Button" to="." method="_on_end_run_button_pressed"]
 [connection signal="pressed" from="MarginContainer/OuterGrid/BottomButtonsGrid/Prev Page Button" to="." method="_on_prev_page_button_pressed"]
+[connection signal="pressed" from="MarginContainer/OuterGrid/BottomButtonsGrid/Done Button" to="." method="_on_ready_button_select"]
 [connection signal="pressed" from="MarginContainer/OuterGrid/BottomButtonsGrid/Next Page Button" to="." method="_on_next_page_button_pressed"]
