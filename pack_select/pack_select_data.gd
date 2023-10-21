@@ -45,24 +45,33 @@ func load_cards():
 		while next != "":
 			var files = DirAccess.open(cur_pack_dir + "/" +next).get_files()
 			var found_back = false
+			var new_pack = PackData.new()
 			for file in files:
 			# Check if the file is an image by checking its extension
 				if (file.ends_with(".json")):
 					var path = cur_pack_dir + "/" +next+"/"+file
 					#Debug: Prints data read in from manifest.json
-					print(readJSON(path))
-				if (file.ends_with(".png") or file.ends_with(".jpg") or file.ends_with(".jpeg")) and file.begins_with("b1"):
-					var new_pack = PackData.new()
-					new_pack.name = next
-					new_pack.texture_path = cur_pack_dir + "/" + next + "/" + file
+					#print(readJSON(path))
+					var jsonData : Dictionary
+					jsonData = readJSON(path)
+					#print(jsonData.get("free"))
+					new_pack.title = str(jsonData.get("title"))
+					new_pack.free = bool(int(jsonData.get("free")))
+					new_pack.genre1 = jsonData.get("genre1")
+					new_pack.genre2 = jsonData.get("genre2")
+					new_pack.genre3 = jsonData.get("genre3")
 					
-					#TODO: Save manifest data in pack.
-					all_packs.push_back(
-						new_pack
-					)
+				if (file.ends_with(".png") or file.ends_with(".jpg") or file.ends_with(".jpeg")) and file.begins_with("b1"):
+					if new_pack.title == "default_title":
+						new_pack.title = next
+					new_pack.texture_path = cur_pack_dir + "/" + next + "/" + file
 					found_back = true
 			if found_back == false:
 				print("Could not find b1.(png,jpg,jpeg) in: " + str(cur_pack_dir) + str(next))
+			else:
+				all_packs.push_back(
+					new_pack
+				)
 			next = packs_dir.get_next()
 	
 		all_packs.sort_custom(sort_packs)
@@ -72,7 +81,7 @@ func load_cards():
 
 
 func sort_packs(a: PackData, b: PackData):
-	if a.name < b.name:
+	if a.title < b.title:
 		return true
 	return false
 

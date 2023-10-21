@@ -25,7 +25,7 @@ func load_image_into_texture(image_path):
 func set_slot_data(slot_data: SlotData) -> void:
 	var pack_data = slot_data.pack_data
 	pack_image.texture = load_image_into_texture(pack_data.texture_path)
-	tooltip_text = "%s\n(Left-Click to Add Copy to Run)\n(Right-Click to Remove Copy from Run)" % [pack_data.name]
+	tooltip_text = "%s\n%s\n(Left-Click to Add Copy to Run)\n(Right-Click to Remove Copy from Run)" % [pack_data.title, pack_data.genre1]
 	
 
 func _on_gui_input(event: InputEvent) -> void:
