@@ -24,5 +24,5 @@ func load_image_into_texture(image_path):
 func set_pack_data(pack_data: PackData) -> void:
 	pack = pack_data
 	pack_image.texture = load_image_into_texture(pack_data.texture_path)
-	tooltip_text = "%s" % [pack_data.name]
+	tooltip_text = "%s" % [pack_data.title]
 	

@@ -18,6 +18,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_cfp7m")
 
+[node name="Background" type="ColorRect" parent="."]
+z_as_relative = false
+layout_mode = 2
+color = Color(0.282353, 0.619608, 0.266667, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 50
@@ -34,25 +39,24 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
+[node name="OneDraft" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("2_0chyk")
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
+[node name="ThreeDrafts" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("3_r1frs")
 
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
+[node name="FiveDrafts" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("4_y8obo")
 
-[node name="Background" type="ColorRect" parent="."]
-z_index = -1
-layout_mode = 2
-color = Color(0.282353, 0.619608, 0.266667, 1)
-
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uvl33")
+
+[connection signal="gui_input" from="VBoxContainer/NumDraftsWrapper/OneDraft" to="." method="on_one_game_select"]
+[connection signal="gui_input" from="VBoxContainer/NumDraftsWrapper/ThreeDrafts" to="." method="on_three_game_select"]
+[connection signal="gui_input" from="VBoxContainer/NumDraftsWrapper/FiveDrafts" to="." method="on_five_game_select"]

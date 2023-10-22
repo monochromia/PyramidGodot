@@ -1,8 +1,5 @@
 extends CenterContainer
 
-
-signal select_num_drafts(selected_packs: Array[PackData])
-
 @export var selected_packs: Array[PackData] = []
 var music_volume: float = 0
 var sfx_volume: float = 0
@@ -29,10 +26,31 @@ func _ready():
 	adjust_background_size()
 	get_tree().root.connect("size_changed", adjust_background_size)
 	
-	print("active packs:")
+
+
+func start_run(num_drafts: int):
+	var new_scene = load("res://card_flip_scene_head.tscn").instantiate()
+	new_scene.selected_packs = selected_packs
+	new_scene.num_drafts = num_drafts
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(new_scene)
+	get_tree().change_scene_to_packed(packed_scene)
 	
-	for pack in selected_packs:
-		print(pack.name)
+
+
+func on_one_game_select(event: InputEvent):
+	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT):
+		start_run(1)
+	
+
+func on_three_game_select(event: InputEvent):
+	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT):
+		start_run(3)
+	
+
+func on_five_game_select(event: InputEvent):
+	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT):
+		start_run(5)
 	
 
 func adjust_background_size():
