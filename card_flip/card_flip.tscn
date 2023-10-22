@@ -1,18 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://co38pj5mrx03c"]
+[gd_scene load_steps=6 format=3 uid="uid://co38pj5mrx03c"]
 
 [ext_resource type="Texture2D" uid="uid://gl2et6s25omr" path="res://sprites/testing/back.png" id="1_0j6r0"]
 [ext_resource type="Texture2D" uid="uid://b8ja7ejtpg35h" path="res://sprites/testing/front.png" id="2_sse32"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pq52k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_sse32")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_1tbtp"]
 resource_name = "card_flip"
@@ -30,23 +19,23 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_back/card_front:scale:x")
+tracks/1/path = NodePath("card_front:scale:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(5.12469, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0, 5.12469, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.2, 0.5)
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("card_back/card_front:z_index")
+tracks/2/path = NodePath("card_front:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(11993.7, 9741.97),
+"transitions": PackedFloat32Array(1e+06, 5996.9),
 "update": 1,
 "values": [-1, 1]
 }
@@ -76,11 +65,9 @@ _data = {
 [node name="card_back" type="Sprite2D" parent="."]
 texture = ExtResource("1_0j6r0")
 
-[node name="card_front" type="AnimatedSprite2D" parent="card_back"]
+[node name="card_front" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(5.12469, 5.1282)
-sprite_frames = SubResource("SpriteFrames_pq52k")
-frame_progress = 0.160166
+texture = ExtResource("2_sse32")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
