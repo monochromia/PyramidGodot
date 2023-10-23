@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://co38pj5mrx03c"]
+[gd_scene load_steps=7 format=3 uid="uid://co38pj5mrx03c"]
 
 [ext_resource type="Texture2D" uid="uid://gl2et6s25omr" path="res://sprites/testing/back.png" id="1_0j6r0"]
+[ext_resource type="Script" path="res://card_flip/card_flip.gd" id="1_6oynu"]
 [ext_resource type="Texture2D" uid="uid://b8ja7ejtpg35h" path="res://sprites/testing/front.png" id="2_sse32"]
 
 [sub_resource type="Animation" id="Animation_1tbtp"]
@@ -61,6 +62,7 @@ _data = {
 }
 
 [node name="card_flip" type="Node2D"]
+script = ExtResource("1_6oynu")
 
 [node name="card_back" type="Sprite2D" parent="."]
 texture = ExtResource("1_0j6r0")
