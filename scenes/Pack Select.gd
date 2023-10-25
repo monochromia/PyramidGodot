@@ -52,11 +52,11 @@ func adjust_background_size():
 	$Background.set_custom_minimum_size(Vector2(window.size.x, window.size.y))
 
 func _on_options_button_pressed():
-	get_tree().change_scene_to_file("res://Options Menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Options Menu.tscn")
 
 
 func _on_end_run_button_pressed():
-	get_tree().change_scene_to_file("res://Main Menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Main Menu.tscn")
 	
 
 

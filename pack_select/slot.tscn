@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvgkt1aa6p2wi"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://pack_select/slot.gd" id="1_kquhm"]
-[ext_resource type="Texture2D" uid="uid://2ylnwwooymkp" path="res://icon.svg" id="1_x2tn2"]
+[ext_resource type="Texture2D" uid="uid://2ylnwwooymkp" path="res://sprites/icon.svg" id="1_x2tn2"]
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(90, 160)

@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfx6r1wt7k8ve"]
+[gd_scene load_steps=5 format=3 uid="uid://65rwog575iil"]
 
-[ext_resource type="Script" path="res://Pack Select.gd" id="1_x7gni"]
-[ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="2_tm624"]
-[ext_resource type="PackedScene" uid="uid://dmmamuu4273x5" path="res://pack_select/pack_select_data.tscn" id="3_bwkng"]
-[ext_resource type="PackedScene" uid="uid://ch1etwk418qvd" path="res://selected_packs_row.tscn" id="4_v6203"]
+[ext_resource type="Script" path="res://scenes/Pack Select.gd" id="1_p1bk7"]
+[ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="2_ksvbw"]
+[ext_resource type="PackedScene" uid="uid://dmmamuu4273x5" path="res://pack_select/pack_select_data.tscn" id="3_5eyoe"]
+[ext_resource type="PackedScene" uid="uid://cxj7gmpopmtjy" path="res://scenes/selected_packs_row.tscn" id="4_x4eqg"]
 
 [node name="Pack_Select_Scene_Head" type="Node2D"]
-script = ExtResource("1_x7gni")
+script = ExtResource("1_p1bk7")
 
 [node name="Background" type="ColorRect" parent="."]
 size_flags_horizontal = 3
@@ -14,7 +14,7 @@ size_flags_vertical = 3
 color = Color(0.282353, 0.619608, 0.266667, 1)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_tm624")
+stream = ExtResource("2_ksvbw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
@@ -69,7 +69,7 @@ text = "Options Menu"
 layout_mode = 2
 text = "Back to Start"
 
-[node name="Pack Select Data" parent="MarginContainer/OuterGrid" instance=ExtResource("3_bwkng")]
+[node name="Pack Select Data" parent="MarginContainer/OuterGrid" instance=ExtResource("3_5eyoe")]
 layout_mode = 2
 
 [node name="Decoration" type="ColorRect" parent="MarginContainer/OuterGrid"]
@@ -77,7 +77,7 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="SelectedPacksRow" parent="MarginContainer/OuterGrid" instance=ExtResource("4_v6203")]
+[node name="SelectedPacksRow" parent="MarginContainer/OuterGrid" instance=ExtResource("4_x4eqg")]
 layout_mode = 2
 
 [node name="BottomButtonsGrid" type="GridContainer" parent="MarginContainer/OuterGrid"]

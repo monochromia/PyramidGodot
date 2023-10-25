@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmmamuu4273x5"]
 
 [ext_resource type="Script" path="res://pack_select/pack_select_data.gd" id="1_b4fgo"]
-[ext_resource type="PackedScene" uid="uid://cvgkt1aa6p2wi" path="res://pack_select/slot.tscn" id="2_s1ifu"]
+[ext_resource type="PackedScene" path="res://pack_select/slot.tscn" id="2_s1ifu"]
 
 [node name="Pack Select Data" type="PanelContainer"]
 anchors_preset = 14

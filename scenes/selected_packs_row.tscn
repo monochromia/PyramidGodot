@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch1etwk418qvd"]
+[gd_scene load_steps=2 format=3 uid="uid://cxj7gmpopmtjy"]
 
-[ext_resource type="Script" path="res://selected_packs_row.gd" id="1_efqxx"]
+[ext_resource type="Script" path="res://scenes/selected_packs_row.gd" id="1_efqxx"]
 
 [node name="SelectedPacksRow" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 70)

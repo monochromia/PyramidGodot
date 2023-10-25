@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcvcw3qghbj45"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://2ylnwwooymkp" path="res://icon.svg" id="1_0ieh0"]
+[ext_resource type="Texture2D" uid="uid://2ylnwwooymkp" path="res://sprites/icon.svg" id="1_0ieh0"]
 [ext_resource type="Script" path="res://pack_select/selected_pack.gd" id="1_py3yb"]
 
 [node name="selected_pack" type="PanelContainer"]

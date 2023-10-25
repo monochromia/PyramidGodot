@@ -48,7 +48,7 @@ func _on_save_button_pressed():
 	_on_cancel_button_pressed()
 	
 func _on_cancel_button_pressed():
-	get_tree().change_scene_to_file("res://Main Menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Main Menu.tscn")
 	
 	
 func _on_music_volume_slider_update(value: float):
