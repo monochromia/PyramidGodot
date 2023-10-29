@@ -29,7 +29,7 @@ func _ready():
 
 
 func start_run(num_drafts: int):
-	var new_scene = load("res://card_flip_scene_head.tscn").instantiate()
+	var new_scene = load("res://scenes/card_flip_scene_head.tscn").instantiate()
 	new_scene.selected_packs = selected_packs
 	new_scene.num_drafts = num_drafts
 	var packed_scene = PackedScene.new()
