@@ -13,6 +13,7 @@ offset_bottom = 643.0
 color = Color(0.341176, 0.341176, 0.341176, 0.615686)
 
 [node name="Options Menu Title" type="RichTextLabel" parent="Options Menu Background"]
+layout_mode = 0
 offset_left = 443.0
 offset_top = 117.0
 offset_right = 659.0
@@ -24,6 +25,8 @@ text = "[center]Options Menu[/center]"
 fit_content = true
 
 [node name="MusicLabel" type="RichTextLabel" parent="Options Menu Background"]
+clip_contents = false
+layout_mode = 0
 offset_left = 439.0
 offset_top = 212.0
 offset_right = 552.0
@@ -33,6 +36,9 @@ text = "Music Volume"
 fit_content = true
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Options Menu Background/MusicLabel"]
+z_index = 1
+z_as_relative = false
+layout_mode = 0
 offset_left = 127.0
 offset_top = -5.0
 offset_right = 216.0
@@ -44,6 +50,8 @@ stream = ExtResource("2_heiti")
 pitch_scale = 0.63
 
 [node name="SFXLabel" type="RichTextLabel" parent="Options Menu Background"]
+clip_contents = false
+layout_mode = 0
 offset_left = 440.0
 offset_top = 250.0
 offset_right = 534.0
@@ -57,6 +65,7 @@ stream = ExtResource("2_2q1tr")
 pitch_scale = 0.63
 
 [node name="SFXVolumeSlider" type="HSlider" parent="Options Menu Background/SFXLabel"]
+layout_mode = 0
 offset_left = 126.0
 offset_top = -4.0
 offset_right = 215.0
@@ -64,6 +73,7 @@ offset_bottom = 33.0
 value = 100.0
 
 [node name="FullscreenToggle" type="CheckButton" parent="Options Menu Background"]
+layout_mode = 0
 offset_left = 479.0
 offset_top = 288.0
 offset_right = 606.0
@@ -71,6 +81,7 @@ offset_bottom = 319.0
 text = "Fullscreen"
 
 [node name="SelectButton" type="Button" parent="Options Menu Background"]
+layout_mode = 0
 offset_left = 464.0
 offset_top = 336.0
 offset_right = 618.0
@@ -78,14 +89,15 @@ offset_bottom = 367.0
 text = "Select Mods Folder"
 
 [node name="FileDialog" type="FileDialog" parent="Options Menu Background/SelectButton"]
-initial_position = 1
 title = "Open a Directory"
+initial_position = 1
 size = Vector2i(450, 450)
 ok_button_text = "Select Current Folder"
 file_mode = 2
 access = 2
 
 [node name="SaveButton" type="Button" parent="Options Menu Background"]
+layout_mode = 0
 offset_left = 473.0
 offset_top = 409.0
 offset_right = 517.0
@@ -93,6 +105,7 @@ offset_bottom = 440.0
 text = "Save"
 
 [node name="CancelButton" type="Button" parent="Options Menu Background"]
+layout_mode = 0
 offset_left = 530.0
 offset_top = 409.0
 offset_right = 612.0

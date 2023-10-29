@@ -5,7 +5,11 @@ var sfx_volume: float = 0
 var fullscreen: bool = false
 var mod_folder_path : String = ""
 var config := ConfigFile.new()
-
+@onready var music_volume_slider = $"Options Menu Background/MusicLabel/MusicVolumeSlider"
+@onready var sfx_volume_slider = $"Options Menu Background/SFXLabel/SFXVolumeSlider"
+@onready var fullscreen_toggle = $"Options Menu Background/FullscreenToggle"
+@onready var music_player = $"Options Menu Background/MusicLabel/Music"
+@onready var sfx_test_sound = $"Options Menu Background/SFXLabel/SFXTestSound"
 const SAVE_PATH = "user://settings.cfg"
 
 # Called when the node enters the scene tree for the first time.
@@ -24,12 +28,12 @@ func _ready():
 	if config.get_value("settings", "mod_folder_path"):
 		mod_folder_path = config.get_value("settings", "mod_folder_path")
 		
-	$MusicVolumeSlider.set_value_no_signal(2 * (music_volume + 50))
-	$SFXVolumeSlider.set_value_no_signal(2 * (sfx_volume + 50))
-	$FullscreenToggle.set_pressed_no_signal(fullscreen)
+	music_volume_slider.set_value_no_signal(2 * (music_volume + 50))
+	sfx_volume_slider.set_value_no_signal(2 * (sfx_volume + 50))
+	fullscreen_toggle.set_pressed_no_signal(fullscreen)
 	
-	$Music.volume_db = music_volume
-	$Music.play()
+	music_player.volume_db = music_volume
+	music_player.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,13 +57,13 @@ func _on_cancel_button_pressed():
 	
 func _on_music_volume_slider_update(value: float):
 	music_volume = 0 - (100 - value) / 2
-	$Music.volume_db = music_volume
+	music_player.volume_db = music_volume
 	
 	
 func _on_sfx_volume_slider_update(value: float):
 	sfx_volume = 0 - (100 - value) / 2
-	$SFXTestSound.volume_db = sfx_volume
-	$SFXTestSound.play()
+	sfx_test_sound.volume_db = sfx_volume
+	sfx_test_sound.play()
 
 func _on_fullscreen_toggle_update(fullscreen_active: bool):
 	fullscreen = fullscreen_active
@@ -71,7 +75,7 @@ func _on_fullscreen_toggle_update(fullscreen_active: bool):
 		
 func _on_select_button_pressed():
 	print("Current Mod Folder Path is " + mod_folder_path)
-	$FileDialog.popup()
+	$"Options Menu Background/SelectButton/FileDialog".popup()
 
 func _on_file_dialog_dir_selected(dir):
 	mod_folder_path = dir
