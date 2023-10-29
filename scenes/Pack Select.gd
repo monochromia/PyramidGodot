@@ -62,7 +62,7 @@ func _on_end_run_button_pressed():
 
 func _on_ready_button_select():
 	if active_row.get_packs().size() > 0:
-		var new_scene = load("res://num_drafts_scene.tscn").instantiate()
+		var new_scene = load("res://scenes/num_drafts_scene.tscn").instantiate()
 		new_scene.selected_packs = active_row.get_packs()
 		var packed_scene = PackedScene.new()
 		packed_scene.pack(new_scene)
