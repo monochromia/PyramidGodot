@@ -9,7 +9,6 @@ const SAVE_PATH = "user://settings.cfg"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("num drafts scene ready")
 	var config := ConfigFile.new()
 	
 	config.load(SAVE_PATH)

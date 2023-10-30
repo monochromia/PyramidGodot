@@ -7,10 +7,6 @@ func load_image_into_texture(image_path):
 	var im = Image.new()
 	im = Image.load_from_file(image_path)  # Create a new Image instance
 	
-	#TODO: Set pack size dynamically based on number of rows/columns decided by screen size or user settings? idk.
-	# This solution works but messes up resolution something fierce
-	im.resize(150,225)
-	
 	if im != Image.new():  # Check if the image loaded successfully
 		var texture = ImageTexture.new()  # Create a new ImageTexture instance
 		

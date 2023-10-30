@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4el3rb0lwg3j"]
+[gd_scene load_steps=8 format=3 uid="uid://b4el3rb0lwg3j"]
 
-[ext_resource type="Texture2D" uid="uid://b5c1jq3bswwlr" path="res://sprites/ui/howmany.png" id="1_chqtc"]
 [ext_resource type="Script" path="res://scenes/num_drafts_scene.gd" id="1_gycd5"]
 [ext_resource type="Texture2D" uid="uid://bt6dv5xrsokt6" path="res://sprites/ui/one.png" id="2_0chyk"]
+[ext_resource type="Texture2D" uid="uid://3sna3fk7yol1" path="res://sprites/ui/background.png" id="2_551gk"]
+[ext_resource type="FontFile" uid="uid://oalfutm1mv07" path="res://fonts/FiraSans-Bold.ttf" id="3_dmuj2"]
 [ext_resource type="Texture2D" uid="uid://b763nce40mgqe" path="res://sprites/ui/three.png" id="3_r1frs"]
 [ext_resource type="Texture2D" uid="uid://dwqk4fhtmcxli" path="res://sprites/ui/five.png" id="4_y8obo"]
 [ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="6_uvl33"]
@@ -18,21 +19,23 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_gycd5")
 
-[node name="Background" type="ColorRect" parent="."]
-z_as_relative = false
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 2
-color = Color(0.282353, 0.619608, 0.266667, 1)
+texture = ExtResource("2_551gk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="HowManyImg" type="TextureRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(1190, 80)
 layout_mode = 2
-texture = ExtResource("1_chqtc")
-expand_mode = 1
-stretch_mode = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 26
+theme_override_fonts/normal_font = ExtResource("3_dmuj2")
+theme_override_font_sizes/normal_font_size = 64
+text = "How many games would you like to play?"
 
 [node name="NumDraftsWrapper" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -40,17 +43,17 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 50
 
 [node name="OneDraft" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("2_0chyk")
 
 [node name="ThreeDrafts" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("3_r1frs")
 
 [node name="FiveDrafts" type="TextureRect" parent="VBoxContainer/NumDraftsWrapper"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("4_y8obo")
 

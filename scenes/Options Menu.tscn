@@ -1,94 +1,108 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlrr01n7s35go"]
+[gd_scene load_steps=6 format=3 uid="uid://dlrr01n7s35go"]
 
 [ext_resource type="Script" path="res://scenes/Options Menu.gd" id="1_cnrgx"]
 [ext_resource type="AudioStream" uid="uid://b7gofvgctvkaw" path="res://sounds/Menu_Sounds_V2_Minimalistic_HOVER.wav" id="2_2q1tr"]
+[ext_resource type="Texture2D" uid="uid://3sna3fk7yol1" path="res://sprites/ui/background.png" id="2_gwae1"]
 [ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="2_heiti"]
+[ext_resource type="FontFile" uid="uid://oalfutm1mv07" path="res://fonts/FiraSans-Bold.ttf" id="3_oka3f"]
 
 [node name="options_menu_scene_head" type="Node2D"]
 script = ExtResource("1_cnrgx")
 
-[node name="Options Menu Background" type="ColorRect" parent="."]
-offset_right = 1149.0
-offset_bottom = 643.0
-color = Color(0.341176, 0.341176, 0.341176, 0.615686)
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_gwae1")
 
-[node name="Options Menu Title" type="RichTextLabel" parent="Options Menu Background"]
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1925.0
+offset_bottom = 1080.0
+color = Color(0.341176, 0.341176, 0.341176, 0.843137)
+
+[node name="Options Menu Title" type="RichTextLabel" parent="Background"]
 layout_mode = 0
-offset_left = 443.0
-offset_top = 117.0
-offset_right = 659.0
-offset_bottom = 151.0
-theme_override_font_sizes/normal_font_size = 24
+offset_left = 687.0
+offset_top = 269.0
+offset_right = 1259.0
+offset_bottom = 346.0
+theme_override_fonts/normal_font = ExtResource("3_oka3f")
+theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[center]Options Menu[/center]"
 fit_content = true
 
-[node name="MusicLabel" type="RichTextLabel" parent="Options Menu Background"]
+[node name="MusicLabel" type="RichTextLabel" parent="Background"]
 clip_contents = false
 layout_mode = 0
-offset_left = 439.0
-offset_top = 212.0
-offset_right = 552.0
-offset_bottom = 235.0
+offset_left = 722.0
+offset_top = 418.0
+offset_right = 1000.0
+offset_bottom = 468.0
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "Music Volume"
 fit_content = true
 
-[node name="MusicVolumeSlider" type="HSlider" parent="Options Menu Background/MusicLabel"]
+[node name="MusicVolumeSlider" type="HSlider" parent="Background/MusicLabel"]
 z_index = 1
 z_as_relative = false
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 127.0
-offset_top = -5.0
-offset_right = 216.0
-offset_bottom = 32.0
+offset_left = 282.0
+offset_top = 4.0
+offset_right = 482.0
+offset_bottom = 54.0
 value = 100.0
 
-[node name="Music" type="AudioStreamPlayer" parent="Options Menu Background/MusicLabel"]
+[node name="Music" type="AudioStreamPlayer" parent="Background/MusicLabel"]
 stream = ExtResource("2_heiti")
 pitch_scale = 0.63
 
-[node name="SFXLabel" type="RichTextLabel" parent="Options Menu Background"]
+[node name="SFXLabel" type="RichTextLabel" parent="Background"]
 clip_contents = false
 layout_mode = 0
-offset_left = 440.0
-offset_top = 250.0
-offset_right = 534.0
-offset_bottom = 273.0
+offset_left = 768.0
+offset_top = 498.0
+offset_right = 1052.0
+offset_bottom = 548.0
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "SFX Volume"
 fit_content = true
 
-[node name="SFXTestSound" type="AudioStreamPlayer" parent="Options Menu Background/SFXLabel"]
+[node name="SFXTestSound" type="AudioStreamPlayer" parent="Background/SFXLabel"]
 stream = ExtResource("2_2q1tr")
 pitch_scale = 0.63
 
-[node name="SFXVolumeSlider" type="HSlider" parent="Options Menu Background/SFXLabel"]
+[node name="SFXVolumeSlider" type="HSlider" parent="Background/SFXLabel"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 126.0
-offset_top = -4.0
-offset_right = 215.0
-offset_bottom = 33.0
+offset_left = 240.0
+offset_top = 6.0
+offset_right = 329.0
+offset_bottom = 43.0
 value = 100.0
 
-[node name="FullscreenToggle" type="CheckButton" parent="Options Menu Background"]
+[node name="FullscreenToggle" type="CheckButton" parent="Background"]
 layout_mode = 0
-offset_left = 479.0
-offset_top = 288.0
-offset_right = 606.0
-offset_bottom = 319.0
+offset_left = 786.0
+offset_top = 574.0
+offset_right = 1048.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 36
 text = "Fullscreen"
 
-[node name="SelectButton" type="Button" parent="Options Menu Background"]
+[node name="SelectButton" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 336.0
-offset_right = 618.0
-offset_bottom = 367.0
+offset_left = 803.0
+offset_top = 710.0
+offset_right = 1138.0
+offset_bottom = 768.0
+theme_override_font_sizes/font_size = 36
 text = "Select Mods Folder"
 
-[node name="FileDialog" type="FileDialog" parent="Options Menu Background/SelectButton"]
+[node name="FileDialog" type="FileDialog" parent="Background/SelectButton"]
 title = "Open a Directory"
 initial_position = 1
 size = Vector2i(450, 450)
@@ -96,26 +110,28 @@ ok_button_text = "Select Current Folder"
 file_mode = 2
 access = 2
 
-[node name="SaveButton" type="Button" parent="Options Menu Background"]
+[node name="SaveButton" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 473.0
-offset_top = 409.0
-offset_right = 517.0
-offset_bottom = 440.0
+offset_left = 803.0
+offset_top = 920.0
+offset_right = 892.0
+offset_bottom = 978.0
+theme_override_font_sizes/font_size = 36
 text = "Save"
 
-[node name="CancelButton" type="Button" parent="Options Menu Background"]
+[node name="CancelButton" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 530.0
-offset_top = 409.0
-offset_right = 612.0
-offset_bottom = 440.0
+offset_left = 1016.0
+offset_top = 921.0
+offset_right = 1140.0
+offset_bottom = 979.0
+theme_override_font_sizes/font_size = 36
 text = "Cancel"
 
-[connection signal="value_changed" from="Options Menu Background/MusicLabel/MusicVolumeSlider" to="." method="_on_music_volume_slider_update"]
-[connection signal="value_changed" from="Options Menu Background/SFXLabel/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_update"]
-[connection signal="toggled" from="Options Menu Background/FullscreenToggle" to="." method="_on_fullscreen_toggle_update"]
-[connection signal="pressed" from="Options Menu Background/SelectButton" to="." method="_on_select_button_pressed"]
-[connection signal="dir_selected" from="Options Menu Background/SelectButton/FileDialog" to="." method="_on_file_dialog_dir_selected"]
-[connection signal="pressed" from="Options Menu Background/SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="Options Menu Background/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="value_changed" from="Background/MusicLabel/MusicVolumeSlider" to="." method="_on_music_volume_slider_update"]
+[connection signal="value_changed" from="Background/SFXLabel/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_update"]
+[connection signal="toggled" from="Background/FullscreenToggle" to="." method="_on_fullscreen_toggle_update"]
+[connection signal="pressed" from="Background/SelectButton" to="." method="_on_select_button_pressed"]
+[connection signal="dir_selected" from="Background/SelectButton/FileDialog" to="." method="_on_file_dialog_dir_selected"]
+[connection signal="pressed" from="Background/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Background/CancelButton" to="." method="_on_cancel_button_pressed"]

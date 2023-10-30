@@ -10,13 +10,13 @@ func load_image_into_texture(image_path):
 	
 	#TODO: Set pack size dynamically based on number of rows/columns decided by screen size or user settings? idk.
 	# This solution works but messes up resolution something fierce
-	im.resize(150,225)
+	im.resize(300,450)
 	
 	if im != Image.new():  # Check if the image loaded successfully
 		var texture = ImageTexture.new()  # Create a new ImageTexture instance
 		
 		texture = ImageTexture.create_from_image(im)  # Assign the image to the texture
-		texture.set_size_override(Vector2i(130, 195))
+		texture.set_size_override(Vector2i(240,360))
 		return texture  # Return the texture
 	else:
 		print("Failed to load image: ", image_path)

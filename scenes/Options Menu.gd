@@ -5,11 +5,11 @@ var sfx_volume: float = 0
 var fullscreen: bool = false
 var mod_folder_path : String = ""
 var config := ConfigFile.new()
-@onready var music_volume_slider = $"Options Menu Background/MusicLabel/MusicVolumeSlider"
-@onready var sfx_volume_slider = $"Options Menu Background/SFXLabel/SFXVolumeSlider"
-@onready var fullscreen_toggle = $"Options Menu Background/FullscreenToggle"
-@onready var music_player = $"Options Menu Background/MusicLabel/Music"
-@onready var sfx_test_sound = $"Options Menu Background/SFXLabel/SFXTestSound"
+@onready var music_volume_slider = $"Background/MusicLabel/MusicVolumeSlider"
+@onready var sfx_volume_slider = $"Background/SFXLabel/SFXVolumeSlider"
+@onready var fullscreen_toggle = $"Background/FullscreenToggle"
+@onready var music_player = $"Background/MusicLabel/Music"
+@onready var sfx_test_sound = $"Background/SFXLabel/SFXTestSound"
 const SAVE_PATH = "user://settings.cfg"
 
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +34,9 @@ func _ready():
 	
 	music_player.volume_db = music_volume
 	music_player.play()
+	
+	adjust_background_size()
+	get_tree().root.connect("size_changed", adjust_background_size)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -83,3 +86,9 @@ func _on_file_dialog_dir_selected(dir):
 	print("Saved Mod Folder Path as " + dir)
 	config.save(SAVE_PATH)
 	
+	
+
+func adjust_background_size():
+	var window = get_window()
+	$Background.set_custom_minimum_size(Vector2(window.size.x, window.size.y))
+	$BackgroundImage.set_custom_minimum_size(Vector2(window.size.x, window.size.y))

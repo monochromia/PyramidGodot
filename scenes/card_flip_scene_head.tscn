@@ -1,60 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://docq6bsovqcka"]
+[gd_scene load_steps=9 format=3 uid="uid://docq6bsovqcka"]
 
 [ext_resource type="Script" path="res://scenes/card_flip_scene_head.gd" id="1_xdd6x"]
+[ext_resource type="Texture2D" uid="uid://3sna3fk7yol1" path="res://sprites/ui/background.png" id="2_sawi2"]
+[ext_resource type="Texture2D" uid="uid://wqttrhq6bxvx" path="res://sprites/ui/reroll_games.png" id="3_6xsgf"]
+[ext_resource type="Texture2D" uid="uid://1g5i4wf10weh" path="res://sprites/ui/roll_d6.png" id="4_u0yvp"]
+[ext_resource type="Texture2D" uid="uid://bo8rcl8aioh66" path="res://sprites/ui/exit.png" id="5_dspia"]
+[ext_resource type="Texture2D" uid="uid://da0ppksy74oar" path="res://sprites/ui/settings.png" id="6_gtxyj"]
+[ext_resource type="Texture2D" uid="uid://51ccwk6kn3qc" path="res://sprites/ui/back_button.png" id="7_hgixu"]
+[ext_resource type="FontFile" uid="uid://oalfutm1mv07" path="res://fonts/FiraSans-Bold.ttf" id="8_8sx2n"]
 
 [node name="card_flip_scene_head" type="Node2D"]
 script = ExtResource("1_xdd6x")
 
-[node name="Background Placeholder" type="ColorRect" parent="."]
-offset_right = 1147.0
-offset_bottom = 652.0
-color = Color(0.282353, 0.619608, 0.266667, 1)
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_sawi2")
 
-[node name="Reroll Button" type="Button" parent="Background Placeholder"]
+[node name="Reroll Button" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 509.0
-offset_top = 601.0
-offset_right = 626.0
-offset_bottom = 649.0
-text = "Reroll!"
+offset_left = 845.0
+offset_top = 971.0
+offset_right = 1153.0
+offset_bottom = 1054.0
+icon = ExtResource("3_6xsgf")
 
-[node name="Quit Button" type="Button" parent="Background Placeholder"]
+[node name="Roll Dice Button" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 1059.0
-offset_top = 3.0
-offset_right = 1144.0
-offset_bottom = 34.0
-text = "Close App"
+offset_left = 64.0
+offset_top = 952.0
+offset_right = 303.0
+offset_bottom = 1035.0
+icon = ExtResource("4_u0yvp")
 
-[node name="Options Button" type="Button" parent="Background Placeholder"]
+[node name="Quit Button" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 931.0
-offset_top = 1.0
-offset_right = 1049.0
-offset_bottom = 32.0
-text = "Options Menu"
+offset_left = 1770.0
+offset_top = 22.0
+offset_right = 1862.0
+offset_bottom = 114.0
+icon = ExtResource("5_dspia")
 
-[node name="Pack Area Placeholder" type="ColorRect" parent="Background Placeholder"]
+[node name="Options Button" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 114.0
-offset_right = 1120.0
-offset_bottom = 590.0
-color = Color(0.117647, 0.345098, 0.411765, 1)
+offset_left = 1652.0
+offset_top = 25.0
+offset_right = 1744.0
+offset_bottom = 117.0
+icon = ExtResource("6_gtxyj")
 
-[node name="Back Button" type="Button" parent="Background Placeholder"]
+[node name="Back Button" type="Button" parent="Background"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "<--------"
+offset_left = 43.0
+offset_top = 37.0
+offset_right = 187.0
+offset_bottom = 120.0
+icon = ExtResource("7_hgixu")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Background Placeholder"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Background"]
 layout_mode = 0
-offset_left = 197.0
-offset_top = 67.0
-offset_right = 905.0
-offset_bottom = 107.0
+offset_left = 217.0
+offset_top = 30.0
+offset_right = 1638.0
+offset_bottom = 125.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("8_8sx2n")
+theme_override_fonts/bold_font = ExtResource("8_8sx2n")
+theme_override_font_sizes/normal_font_size = 69
 bbcode_enabled = true
-text = "[center]NAME GENERATOR[/center]"
+text = "[center]PYRAMID OF DEFAULT OPTIONS[/center]"
 fit_content = true
 scroll_active = false

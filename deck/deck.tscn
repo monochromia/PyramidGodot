@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://clcp7vjkje3y0"]
+
+[ext_resource type="PackedScene" uid="uid://co38pj5mrx03c" path="res://card_flip/card_flip.tscn" id="1_hjjr5"]
+
+[node name="Deck" type="PanelContainer"]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="primary" parent="GridContainer" instance=ExtResource("1_hjjr5")]
+z_index = 1
+
+[node name="secondary" parent="GridContainer" instance=ExtResource("1_hjjr5")]
+z_index = 1
+position = Vector2(2240, 0)
+
+[node name="curse" parent="GridContainer" instance=ExtResource("1_hjjr5")]
+position = Vector2(1086, 1233)

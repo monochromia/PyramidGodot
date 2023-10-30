@@ -1,45 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmtcgxpdq5mrj"]
+[gd_scene load_steps=7 format=3 uid="uid://cmtcgxpdq5mrj"]
 
 [ext_resource type="Script" path="res://scenes/Main Menu.gd" id="1_rjn11"]
 [ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="2_j5o8y"]
+[ext_resource type="Texture2D" uid="uid://3sna3fk7yol1" path="res://sprites/ui/background.png" id="2_wg46u"]
+[ext_resource type="Texture2D" uid="uid://da0ppksy74oar" path="res://sprites/ui/settings.png" id="3_batyp"]
+[ext_resource type="Texture2D" uid="uid://bo8rcl8aioh66" path="res://sprites/ui/exit.png" id="4_eqq0y"]
+[ext_resource type="FontFile" uid="uid://oalfutm1mv07" path="res://fonts/FiraSans-Bold.ttf" id="5_lxfsf"]
 
 [node name="Main_Menu_Scene_Head" type="Node2D"]
 script = ExtResource("1_rjn11")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 1147.0
-offset_bottom = 652.0
-color = Color(0.282353, 0.619608, 0.266667, 1)
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_wg46u")
+stretch_mode = 6
 
 [node name="Start Button" type="Button" parent="."]
-offset_left = 518.0
-offset_top = 219.0
-offset_right = 614.0
-offset_bottom = 250.0
+custom_minimum_size = Vector2(337, 0)
+offset_left = 812.0
+offset_top = 950.0
+offset_right = 1149.0
+offset_bottom = 1013.0
+theme_override_font_sizes/font_size = 40
 text = "Start Game"
 
 [node name="Options Button" type="Button" parent="."]
-offset_left = 528.0
-offset_top = 264.0
-offset_right = 598.0
-offset_bottom = 295.0
-text = "Options"
+offset_left = 1615.0
+offset_top = 56.0
+offset_right = 1707.0
+offset_bottom = 148.0
+icon = ExtResource("3_batyp")
 
 [node name="Quit Button" type="Button" parent="."]
-offset_left = 536.0
-offset_top = 321.0
-offset_right = 578.0
-offset_bottom = 352.0
-text = "Quit"
+offset_left = 1743.0
+offset_top = 54.0
+offset_right = 1835.0
+offset_bottom = 146.0
+icon = ExtResource("4_eqq0y")
 
 [node name="Title Text" type="RichTextLabel" parent="."]
-offset_left = 355.0
-offset_top = 126.0
-offset_right = 773.0
-offset_bottom = 171.0
-theme_override_font_sizes/normal_font_size = 32
+offset_left = 635.0
+offset_top = 671.0
+offset_right = 1304.0
+offset_bottom = 755.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("5_lxfsf")
+theme_override_fonts/bold_font = ExtResource("5_lxfsf")
+theme_override_font_sizes/normal_font_size = 69
 bbcode_enabled = true
-text = "[rainbow][wave][center]THE PYRAMID[/center][/wave][/rainbow]"
+text = "[center]THE PYRAMID[/center]"
 fit_content = true
 scroll_active = false
 

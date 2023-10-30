@@ -13,6 +13,7 @@ func _ready():
 		print(pack.title)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func adjust_background_size():
+	var window = get_window()
+	$Background.set_custom_minimum_size(Vector2(window.size.x, window.size.y))
+	$Background.set_custom_maximum_size(Vector2(window.size.x, window.size.y))

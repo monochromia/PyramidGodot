@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://ccib0g06ytxnp"]
 
 [ext_resource type="Script" path="res://pack_select/slot.gd" id="1_kquhm"]
 [ext_resource type="Texture2D" uid="uid://2ylnwwooymkp" path="res://sprites/icon.svg" id="1_x2tn2"]
 
 [node name="Slot" type="PanelContainer"]
-custom_minimum_size = Vector2(90, 160)
+custom_minimum_size = Vector2(120, 200)
 offset_right = 128.0
 offset_bottom = 200.0
 script = ExtResource("1_kquhm")

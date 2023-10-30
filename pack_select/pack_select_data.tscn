@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmmamuu4273x5"]
 
 [ext_resource type="Script" path="res://pack_select/pack_select_data.gd" id="1_b4fgo"]
-[ext_resource type="PackedScene" path="res://pack_select/slot.tscn" id="2_s1ifu"]
+[ext_resource type="PackedScene" uid="uid://ccib0g06ytxnp" path="res://pack_select/slot.tscn" id="2_s1ifu"]
 
 [node name="Pack Select Data" type="PanelContainer"]
 anchors_preset = 14
@@ -30,39 +30,49 @@ theme_override_constants/v_separation = 12
 columns = 6
 
 [node name="Slot" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
-custom_minimum_size = Vector2(90, 150)
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot2" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot3" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot4" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot5" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot6" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot7" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
-custom_minimum_size = Vector2(100, 150)
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot8" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot9" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot10" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot11" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2
 
 [node name="Slot12" parent="MarginContainer/GridContainer" instance=ExtResource("2_s1ifu")]
+custom_minimum_size = Vector2(180, 300)
 layout_mode = 2

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://65rwog575iil"]
+[gd_scene load_steps=6 format=3 uid="uid://65rwog575iil"]
 
 [ext_resource type="Script" path="res://scenes/Pack Select.gd" id="1_p1bk7"]
+[ext_resource type="Texture2D" uid="uid://3sna3fk7yol1" path="res://sprites/ui/background.png" id="2_32i3x"]
 [ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="2_ksvbw"]
 [ext_resource type="PackedScene" uid="uid://dmmamuu4273x5" path="res://pack_select/pack_select_data.tscn" id="3_5eyoe"]
 [ext_resource type="PackedScene" uid="uid://cxj7gmpopmtjy" path="res://scenes/selected_packs_row.tscn" id="4_x4eqg"]
@@ -8,10 +9,10 @@
 [node name="Pack_Select_Scene_Head" type="Node2D"]
 script = ExtResource("1_p1bk7")
 
-[node name="Background" type="ColorRect" parent="."]
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0.282353, 0.619608, 0.266667, 1)
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_32i3x")
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ksvbw")
@@ -22,9 +23,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 24.0
-offset_right = 1150.0
-offset_bottom = 628.0
+offset_top = -4.0
+offset_right = 1914.0
+offset_bottom = 1072.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -47,6 +48,7 @@ columns = 5
 
 [node name="Rules Button" type="Button" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Rules"
 
 [node name="Search Bar" type="TextEdit" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
@@ -54,19 +56,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/background_color = Color(1, 1, 1, 0.27451)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
 text = "Search Bar"
 placeholder_text = "Search Bar"
 
 [node name="Filter Menu Button" type="Button" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Filter Menu"
 
 [node name="Options Button" type="Button" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Options Menu"
 
 [node name="End Run Button" type="Button" parent="MarginContainer/OuterGrid/TopButtonsGrid"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Back to Start"
 
 [node name="Pack Select Data" parent="MarginContainer/OuterGrid" instance=ExtResource("3_5eyoe")]
@@ -78,24 +84,28 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="SelectedPacksRow" parent="MarginContainer/OuterGrid" instance=ExtResource("4_x4eqg")]
+custom_minimum_size = Vector2(0, 136)
 layout_mode = 2
 
 [node name="BottomButtonsGrid" type="GridContainer" parent="MarginContainer/OuterGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/h_separation = 419
+theme_override_constants/h_separation = 636
 columns = 3
 
 [node name="Prev Page Button" type="Button" parent="MarginContainer/OuterGrid/BottomButtonsGrid"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Prev Page"
 
 [node name="Done Button" type="Button" parent="MarginContainer/OuterGrid/BottomButtonsGrid"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Done Drafting"
 
 [node name="Next Page Button" type="Button" parent="MarginContainer/OuterGrid/BottomButtonsGrid"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Next Page"
 
 [connection signal="pressed" from="MarginContainer/OuterGrid/TopButtonsGrid/Options Button" to="." method="_on_options_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://dpma7m54cf4jb"]
 
 [ext_resource type="Texture2D" uid="uid://2ylnwwooymkp" path="res://sprites/icon.svg" id="1_0ieh0"]
 [ext_resource type="Script" path="res://pack_select/selected_pack.gd" id="1_py3yb"]
@@ -18,7 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_py3yb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(29, 54)
+custom_minimum_size = Vector2(80, 120)
 layout_mode = 2
 texture = ExtResource("1_0ieh0")
 expand_mode = 4
