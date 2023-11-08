@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://docq6bsovqcka"]
+[gd_scene load_steps=10 format=3 uid="uid://docq6bsovqcka"]
 
 [ext_resource type="Script" path="res://scenes/card_flip_scene_head.gd" id="1_xdd6x"]
 [ext_resource type="Texture2D" uid="uid://3sna3fk7yol1" path="res://sprites/ui/background.png" id="2_sawi2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://da0ppksy74oar" path="res://sprites/ui/settings.png" id="6_gtxyj"]
 [ext_resource type="Texture2D" uid="uid://51ccwk6kn3qc" path="res://sprites/ui/back_button.png" id="7_hgixu"]
 [ext_resource type="FontFile" uid="uid://oalfutm1mv07" path="res://fonts/FiraSans-Bold.ttf" id="8_8sx2n"]
+[ext_resource type="PackedScene" uid="uid://clcp7vjkje3y0" path="res://deck/deck.tscn" id="9_g83s2"]
 
 [node name="card_flip_scene_head" type="Node2D"]
 script = ExtResource("1_xdd6x")
@@ -24,14 +25,16 @@ offset_top = 971.0
 offset_right = 1153.0
 offset_bottom = 1054.0
 icon = ExtResource("3_6xsgf")
+flat = true
 
 [node name="Roll Dice Button" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 952.0
-offset_right = 303.0
-offset_bottom = 1035.0
+offset_left = 58.0
+offset_top = 965.0
+offset_right = 297.0
+offset_bottom = 1048.0
 icon = ExtResource("4_u0yvp")
+flat = true
 
 [node name="Quit Button" type="Button" parent="Background"]
 layout_mode = 0
@@ -40,6 +43,9 @@ offset_top = 22.0
 offset_right = 1862.0
 offset_bottom = 114.0
 icon = ExtResource("5_dspia")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Options Button" type="Button" parent="Background"]
 layout_mode = 0
@@ -48,6 +54,9 @@ offset_top = 25.0
 offset_right = 1744.0
 offset_bottom = 117.0
 icon = ExtResource("6_gtxyj")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Back Button" type="Button" parent="Background"]
 layout_mode = 0
@@ -56,6 +65,7 @@ offset_top = 37.0
 offset_right = 187.0
 offset_bottom = 120.0
 icon = ExtResource("7_hgixu")
+flat = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Background"]
 layout_mode = 0
@@ -72,3 +82,27 @@ bbcode_enabled = true
 text = "[center]PYRAMID OF DEFAULT OPTIONS[/center]"
 fit_content = true
 scroll_active = false
+
+[node name="Deck" parent="Background" instance=ExtResource("9_g83s2")]
+z_index = 1
+layout_mode = 1
+offset_left = -903.0
+offset_top = -328.0
+offset_right = 261.0
+offset_bottom = 887.0
+
+[node name="Deck2" parent="Background" instance=ExtResource("9_g83s2")]
+z_index = 1
+layout_mode = 1
+offset_left = -280.0
+offset_top = -324.0
+offset_right = 884.0
+offset_bottom = 891.0
+
+[node name="Deck3" parent="Background" instance=ExtResource("9_g83s2")]
+z_index = 1
+layout_mode = 1
+offset_left = 334.0
+offset_top = -322.0
+offset_right = 1498.0
+offset_bottom = 893.0
