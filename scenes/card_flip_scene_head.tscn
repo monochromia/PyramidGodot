@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://docq6bsovqcka"]
+[gd_scene load_steps=13 format=3 uid="uid://docq6bsovqcka"]
 
 [ext_resource type="Script" path="res://scenes/card_flip_scene_head.gd" id="1_xdd6x"]
 [ext_resource type="Texture2D" uid="uid://3sna3fk7yol1" path="res://sprites/ui/background.png" id="2_sawi2"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://51ccwk6kn3qc" path="res://sprites/ui/back_button.png" id="7_hgixu"]
 [ext_resource type="FontFile" uid="uid://oalfutm1mv07" path="res://fonts/FiraSans-Bold.ttf" id="8_8sx2n"]
 [ext_resource type="PackedScene" uid="uid://clcp7vjkje3y0" path="res://deck/deck.tscn" id="9_g83s2"]
+[ext_resource type="Texture2D" uid="uid://cvwcodvwtg2vn" path="res://sprites/ui/d6.png" id="10_nu4ll"]
+[ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="11_b3lju"]
+[ext_resource type="AudioStream" uid="uid://dauc6vp5cniy1" path="res://sounds/dice-roll.wav" id="12_ra5x1"]
 
 [node name="card_flip_scene_head" type="Node2D"]
 script = ExtResource("1_xdd6x")
@@ -106,3 +109,23 @@ offset_left = 334.0
 offset_top = -322.0
 offset_right = 1498.0
 offset_bottom = 893.0
+
+[node name="D6" type="TextureRect" parent="Background"]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 970.0
+offset_right = 395.0
+offset_bottom = 1045.0
+texture = ExtResource("10_nu4ll")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_b3lju")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ra5x1")
+
+[connection signal="pressed" from="Background/Roll Dice Button" to="." method="_on_roll_dice_button_pressed"]
+[connection signal="pressed" from="Background/Quit Button" to="." method="_on_exit_button_click"]
+[connection signal="pressed" from="Background/Options Button" to="." method="_on_options_button_click"]
+[connection signal="pressed" from="Background/Back Button" to="." method="_on_back_button_click"]
