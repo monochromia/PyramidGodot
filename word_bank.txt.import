@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cyokvt3ruf5y1"
+
+[deps]
+
+files=["res://word_bank.Nouns.translation"]
+
+source_file="res://word_bank.txt"
+dest_files=["res://word_bank.Nouns.translation"]
+
+[params]
+
+compress=true
+delimiter=0

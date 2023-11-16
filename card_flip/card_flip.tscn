@@ -85,7 +85,6 @@ _data = {
 }
 
 [node name="card_flip" type="PanelContainer"]
-custom_minimum_size = Vector2(567, 810)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -97,24 +96,24 @@ offset_right = 283.5
 offset_bottom = 405.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(282, 404)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+pivot_offset = Vector2(282, 405)
+size_flags_horizontal = 6
+size_flags_vertical = 6
 script = ExtResource("1_6oynu")
 
 [node name="card_front" type="TextureRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("2_sse32")
+expand_mode = 1
 stretch_mode = 3
 
 [node name="card_back" type="TextureRect" parent="."]
 z_index = 1
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("1_0j6r0")
+expand_mode = 1
 stretch_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

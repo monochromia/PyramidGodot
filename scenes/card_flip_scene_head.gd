@@ -5,6 +5,8 @@ var sfx_volume: float = 0
 
 const SAVE_PATH = "user://settings.cfg"
 
+var draft_generator = preload("res://draft/draft_gen.gd").new()
+
 const BACK_SOUND = preload("res://sounds/Menu_Sounds_V2_Minimalistic_BACKWARD.wav")
 const ROLL_SOUND = preload("res://sounds/dice-roll.wav")
 
@@ -33,6 +35,19 @@ func _ready():
 	$BGM.volume_db = music_volume
 	$SFX.volume_db = sfx_volume
 	$BGM.play()
+	
+	generate_draft()
+
+
+func generate_draft():
+	# Ensure the wordbank is loaded
+	if draft_generator.is_wordbank_ready():
+		var random_adjective = draft_generator.get_random_adjective()
+		var random_noun = draft_generator.get_random_noun()
+		$Background/MarginContainer/GridContainer/TopRow/RunTitle.clear()
+		$Background/MarginContainer/GridContainer/TopRow/RunTitle.text = "[center]{a} Pyramid of {n}[/center]".format({"a": random_adjective, "n": random_noun})
+	else:
+		print("Wordbank is still loading...")
 
 
 func adjust_background_size():
@@ -62,11 +77,14 @@ func _on_exit_button_click():
 	get_tree().quit()
 
 func _on_roll_dice_button_pressed():
+	# Randomize the seed for randomization
+	randomize()
+	
 	# Generate a random number between 1 and 6
 	var dice_roll = randi() % 6 + 1
 
 	# Get the TextureRect node
-	var texture_rect = get_node("Background/D6")
+	var texture_rect = get_node("Background/MarginContainer/GridContainer/BottomRow/DiceBox/D6")
 
 	# Load the appropriate texture based on the dice roll
 	var texture_path = "sprites/ui/d" + str(dice_roll) + ".png"

@@ -15,8 +15,8 @@ offset_bottom = 885.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
 [node name="BoxContainer3" type="BoxContainer" parent="."]
 layout_mode = 2
@@ -27,6 +27,7 @@ vertical = true
 [node name="BoxContainer2" type="BoxContainer" parent="BoxContainer3"]
 z_index = -1
 layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
 
 [node name="curse" parent="BoxContainer3/BoxContainer2" instance=ExtResource("1_hjjr5")]
@@ -35,6 +36,7 @@ layout_mode = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="BoxContainer3"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 30
 alignment = 1
 
