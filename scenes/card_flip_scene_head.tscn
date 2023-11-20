@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://docq6bsovqcka"]
+[gd_scene load_steps=12 format=3 uid="uid://docq6bsovqcka"]
 
 [ext_resource type="Script" path="res://scenes/card_flip_scene_head.gd" id="1_xdd6x"]
 [ext_resource type="Texture2D" uid="uid://3sna3fk7yol1" path="res://sprites/ui/background.png" id="2_sawi2"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://da0ppksy74oar" path="res://sprites/ui/settings.png" id="6_gtxyj"]
 [ext_resource type="Texture2D" uid="uid://51ccwk6kn3qc" path="res://sprites/ui/back_button.png" id="7_hgixu"]
 [ext_resource type="FontFile" uid="uid://oalfutm1mv07" path="res://fonts/FiraSans-Bold.ttf" id="8_8sx2n"]
-[ext_resource type="PackedScene" uid="uid://clcp7vjkje3y0" path="res://deck/deck.tscn" id="9_g83s2"]
 [ext_resource type="Texture2D" uid="uid://cvwcodvwtg2vn" path="res://sprites/ui/d6.png" id="10_nu4ll"]
 [ext_resource type="AudioStream" uid="uid://crwtutceuuea5" path="res://sounds/lofi.wav" id="11_b3lju"]
 [ext_resource type="AudioStream" uid="uid://dauc6vp5cniy1" path="res://sounds/dice-roll.wav" id="12_ra5x1"]
@@ -83,18 +82,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
-
-[node name="Deck" parent="Background/MarginContainer/GridContainer/CardRow" instance=ExtResource("9_g83s2")]
-z_index = 1
-layout_mode = 2
-
-[node name="Deck2" parent="Background/MarginContainer/GridContainer/CardRow" instance=ExtResource("9_g83s2")]
-z_index = 1
-layout_mode = 2
-
-[node name="Deck3" parent="Background/MarginContainer/GridContainer/CardRow" instance=ExtResource("9_g83s2")]
-z_index = 1
-layout_mode = 2
 
 [node name="BottomRow" type="GridContainer" parent="Background/MarginContainer/GridContainer"]
 layout_mode = 2

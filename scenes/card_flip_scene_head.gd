@@ -10,6 +10,8 @@ var draft_generator = preload("res://draft/draft_gen.gd").new()
 const BACK_SOUND = preload("res://sounds/Menu_Sounds_V2_Minimalistic_BACKWARD.wav")
 const ROLL_SOUND = preload("res://sounds/dice-roll.wav")
 
+@onready var card_row = $Background/MarginContainer/GridContainer/CardRow
+
 @export var selected_packs: Array[PackData] = []
 @export var num_drafts: int
 
@@ -48,6 +50,21 @@ func generate_draft():
 		$Background/MarginContainer/GridContainer/TopRow/RunTitle.text = "[center]{a} Pyramid of {n}[/center]".format({"a": random_adjective, "n": random_noun})
 	else:
 		print("Wordbank is still loading...")
+	
+	# shuffle packs for random selection	
+	selected_packs.shuffle()
+	
+	var active_packs = selected_packs.slice(0, num_drafts)
+	
+	for pack_data in active_packs:
+		generate_deck(pack_data)
+
+
+func generate_deck(pack_data: PackData):
+	var new_deck = Deck.new()
+	new_deck.set_pack_data(pack_data)
+	new_deck.adjust_sizing(num_drafts)
+	card_row.add_child(new_deck)
 
 
 func adjust_background_size():

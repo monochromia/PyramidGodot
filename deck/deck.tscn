@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://clcp7vjkje3y0"]
+[gd_scene load_steps=3 format=3 uid="uid://clcp7vjkje3y0"]
 
+[ext_resource type="Script" path="res://deck/deck.gd" id="1_fe5y2"]
 [ext_resource type="PackedScene" uid="uid://co38pj5mrx03c" path="res://card_flip/card_flip.tscn" id="1_hjjr5"]
 
 [node name="Deck" type="PanelContainer"]
@@ -17,6 +18,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 6
 size_flags_vertical = 6
+script = ExtResource("1_fe5y2")
 
 [node name="BoxContainer3" type="BoxContainer" parent="."]
 layout_mode = 2
