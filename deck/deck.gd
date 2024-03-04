@@ -13,8 +13,10 @@ var curses: Array[String] = []
 
 func list_files_in_directory(path):
 	var files = []
-	var dir = DirAccess.open(path)
+	var dir = DirAccess.open(str(path))
+	var error = DirAccess.get_open_error()
 	dir.list_dir_begin()
+	
 
 	while true:
 		var file = dir.get_next()
@@ -49,7 +51,7 @@ func set_pack_data(pack_data: PackData):
 		if part != "":
 			texture_dir += "/"
 			texture_dir += part
-	
+	texture_dir = texture_dir.substr(1)
 	var image_paths = list_files_in_directory(texture_dir)
 	
 	index_images(image_paths)
