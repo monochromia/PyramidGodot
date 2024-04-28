@@ -76,8 +76,10 @@ func generate_deck(pack_data: PackData, index: int):
 	var new_deck = deck_generator.instantiate()
 	new_deck.set_pack_data(pack_data)
 	new_deck.adjust_sizing(num_drafts)
-	position_deck(new_deck, index)
 	card_row.add_child(new_deck)
+	card_row.call_deferred("update_layout")  # Force layout update
+	call_deferred("position_deck", new_deck, index)
+
 
 
 func adjust_background_size():
@@ -87,26 +89,28 @@ func adjust_background_size():
 
 
 func position_deck(deck: Deck, index: int):
-	var container_width = card_row.size.x
+	# Use the viewport's size to ensure it's always centered on the screen
+	var viewport_width = get_viewport_rect().size.x
+	var viewport_height = get_viewport_rect().size.y
+
+	# Deck dimensions
 	var deck_width = deck.WIDTH * deck.SCALE
+	var deck_height = deck.HEIGHT * deck.SCALE
 
-	# Calculate the spacing and position
+	# Calculate the total width of all decks and the spacing between them
 	var total_deck_width = num_drafts * deck_width
-	var spacing = ((container_width - total_deck_width) / (num_drafts + 1)) - 40
-	var offset_diff = 2
-	
-	if num_drafts == 3:
-		offset_diff = 4
-	elif num_drafts == 5:
-		offset_diff = 6
-		
-	var x_position = (deck_width + spacing) * index + (card_row.size.x / offset_diff)
+	var spacing = (viewport_width - total_deck_width) / (num_drafts + 1)
+	var offset = 150
 
-	# Center the deck vertically within the GridContainer
-	var y_position = 120 + (card_row.size.y - deck.HEIGHT * deck.SCALE) / 2
+	# Calculate the horizontal position for each deck
+	var x_position = spacing + (deck_width + spacing) * index + offset
+
+	# Center the deck vertically in the middle of the screen
+	var y_position = (viewport_height - deck_height) / 2
 
 	# Set the deck's position
 	deck.position = Vector2(x_position, y_position)
+
 
 
 func _on_options_button_click():
