@@ -87,8 +87,8 @@ func sort_packs(a: PackData, b: PackData):
 
 
 func next_page():
-	starting_index = starting_index + page_size % all_packs.size()
-
+	starting_index = (starting_index + page_size) % all_packs.size()
+	
 	populate_pack_select()
 
 

@@ -103,8 +103,8 @@ theme_override_font_sizes/font_size = 36
 text = "Select Mods Folder"
 
 [node name="FileDialog" type="FileDialog" parent="Background/SelectButton"]
-initial_position = 1
 title = "Open a Directory"
+initial_position = 1
 size = Vector2i(450, 450)
 ok_button_text = "Select Current Folder"
 file_mode = 2
