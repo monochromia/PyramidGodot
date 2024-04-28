@@ -1,49 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://clcp7vjkje3y0"]
+[gd_scene load_steps=3 format=3 uid="uid://d2a8wudv0406s"]
 
 [ext_resource type="Script" path="res://deck/deck.gd" id="1_fe5y2"]
-[ext_resource type="PackedScene" uid="uid://co38pj5mrx03c" path="res://card_flip/card_flip.tscn" id="1_hjjr5"]
+[ext_resource type="Texture2D" uid="uid://b8ja7ejtpg35h" path="res://sprites/testing/front.png" id="2_bu0hm"]
 
-[node name="Deck" type="PanelContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -318.0
-offset_top = -330.0
-offset_right = 846.0
-offset_bottom = 885.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-size_flags_horizontal = 6
-size_flags_vertical = 6
+[node name="Deck" type="Node2D"]
 script = ExtResource("1_fe5y2")
 
-[node name="BoxContainer3" type="BoxContainer" parent="."]
-layout_mode = 2
-theme_override_constants/separation = -1215
-alignment = 1
-vertical = true
-
-[node name="BoxContainer2" type="BoxContainer" parent="BoxContainer3"]
-z_index = -1
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="curse" parent="BoxContainer3/BoxContainer2" instance=ExtResource("1_hjjr5")]
-show_behind_parent = true
-layout_mode = 2
-
-[node name="BoxContainer" type="BoxContainer" parent="BoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="primary" parent="BoxContainer3/BoxContainer" instance=ExtResource("1_hjjr5")]
-layout_mode = 2
-
-[node name="secondary" parent="BoxContainer3/BoxContainer" instance=ExtResource("1_hjjr5")]
-layout_mode = 2
+[node name="Front" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_bu0hm")

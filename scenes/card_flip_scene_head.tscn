@@ -77,7 +77,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="CardRow" type="GridContainer" parent="Background/MarginContainer/GridContainer"]
-clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

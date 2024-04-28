@@ -1,15 +1,15 @@
-extends PanelContainer
+extends Node2D
 
 class_name Deck
+
+const WIDTH: int = 567
+const HEIGHT: int = 810
+const SCALE: float = 0.6
 
 var backgrounds: Array[String] = []
 var primaries: Array[String] = []
 var secondaries: Array[String] = []
 var curses: Array[String] = []
-
-@onready var primary = $BoxContainer3/BoxContainer/primary
-@onready var secondary = $BoxContainer3/BoxContainer/secondary
-@onready var curse = $BoxContainer3/BoxContainer2/curse
 
 func list_files_in_directory(path):
 	var files = []

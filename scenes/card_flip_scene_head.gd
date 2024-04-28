@@ -6,6 +6,7 @@ var sfx_volume: float = 0
 const SAVE_PATH = "user://settings.cfg"
 
 var draft_generator = preload("res://draft/draft_gen.gd").new()
+var deck_generator = preload("res://deck/deck.tscn")
 
 const BACK_SOUND = preload("res://sounds/Menu_Sounds_V2_Minimalistic_BACKWARD.wav")
 const ROLL_SOUND = preload("res://sounds/dice-roll.wav")
@@ -19,6 +20,8 @@ const ROLL_SOUND = preload("res://sounds/dice-roll.wav")
 func _ready():
 	print("num drafts:")
 	print(num_drafts)
+	
+	card_row.columns = num_drafts
 	
 	print("selected packs:")
 	for pack in selected_packs:
@@ -42,6 +45,10 @@ func _ready():
 
 
 func generate_draft():
+	# clear any old draft items
+	for child in card_row.get_children():
+		child.queue_free()
+		
 	# Ensure the wordbank is loaded
 	if draft_generator.is_wordbank_ready():
 		var random_adjective = draft_generator.get_random_adjective()
@@ -54,16 +61,22 @@ func generate_draft():
 	# shuffle packs for random selection	
 	selected_packs.shuffle()
 	
-	var active_packs = selected_packs.slice(0, num_drafts)
+	var active_packs = []
 	
+	for i in range(num_drafts):
+		active_packs.push_back(selected_packs.pick_random())
+	
+	var index = 0
 	for pack_data in active_packs:
-		generate_deck(pack_data)
+		generate_deck(pack_data, index)
+		index = index + 1
 
 
-func generate_deck(pack_data: PackData):
-	var new_deck = Deck.new()
+func generate_deck(pack_data: PackData, index: int):
+	var new_deck = deck_generator.instantiate()
 	new_deck.set_pack_data(pack_data)
 	new_deck.adjust_sizing(num_drafts)
+	position_deck(new_deck, index)
 	card_row.add_child(new_deck)
 
 
@@ -71,6 +84,29 @@ func adjust_background_size():
 	var window = get_window()
 	$Background.set_custom_minimum_size(Vector2(window.size.x, window.size.y))
 	$Background.set_custom_maximum_size(Vector2(window.size.x, window.size.y))
+
+
+func position_deck(deck: Deck, index: int):
+	var container_width = card_row.size.x
+	var deck_width = deck.WIDTH * deck.SCALE
+
+	# Calculate the spacing and position
+	var total_deck_width = num_drafts * deck_width
+	var spacing = ((container_width - total_deck_width) / (num_drafts + 1)) - 40
+	var offset_diff = 2
+	
+	if num_drafts == 3:
+		offset_diff = 4
+	elif num_drafts == 5:
+		offset_diff = 6
+		
+	var x_position = (deck_width + spacing) * index + (card_row.size.x / offset_diff)
+
+	# Center the deck vertically within the GridContainer
+	var y_position = 120 + (card_row.size.y - deck.HEIGHT * deck.SCALE) / 2
+
+	# Set the deck's position
+	deck.position = Vector2(x_position, y_position)
 
 
 func _on_options_button_click():
